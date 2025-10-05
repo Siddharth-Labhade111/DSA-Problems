@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
@@ -22,4 +23,30 @@ class Solution {
         }
         return stack.isEmpty();
     }
+=======
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '[' || ch == '{') {
+                stack.push(ch);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if (ch == ')' && top != '(') {
+                    return false;
+                }
+                if (ch == ']' && top != '[') {
+                    return false;
+                }
+                if (ch == '}' && top != '{') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+>>>>>>> cb2e1fc22e3ec8b04fa306f02b6a63b6b9d33187
 }
